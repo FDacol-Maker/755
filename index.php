@@ -165,7 +165,7 @@
       <section id="contato" class="contato">
         <div class="titulo-secao">
             <p>Vamos Conversar?</p>
-            <h2>Contato</h2>
+            <h2>Contatos</h2>
         </div>
         <div class="contato-links">
             <a href="https://wa.me/1234567891011">WhatsApp</a>
