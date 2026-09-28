@@ -1,0 +1,441 @@
+/* ==================== */
+/* CONFIGURAÇÕES GERAIS */
+/* ==================== */
+
+
+* {
+
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:rgba(51, 68, 161, 0.466);
+    color: aliceblue;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==================== */
+/*         MENU         */
+/* ==================== */
+
+header {
+    height: 80px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #15151d;
+    border-bottom: 1px solid #292936;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo h2 {
+    font-size: 26px;
+}
+
+.logo span {
+    color: #7c5cff;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #b8b8c7;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #7c5cff;
+}
+
+/* ==================== */
+/* INICIO               */
+/* ==================== */
+
+.inicio {
+    min-height: calc(100vh - 80px);
+    padding: 80px 10%;
+    display: flex;
+    align-items: center;
+    background-color: #0f0f14;
+}
+
+.inicio-conteudo {
+    max-width: 750px;
+}
+
+.apresentacao {
+    color: #7c5cff;
+    font-size: 70px;
+    line-height: 1.1;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.inico h1 {
+    font-size: 70px;
+    line-height: 1.1;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.inicio h2 {
+    font-size: 32px;
+    color: #a9a9b8;
+    margin-bottom: 25px;
+}
+
+.descricao {
+    max-width: 600px;
+    color: #9c9cab;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+
+/* ==================== */
+/* BOTÕES               */
+/* ==================== */
+
+.botoes {
+    display: flex;
+    gap: 15px;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #7c5cff;
+    color: #ffff;
+    padding: 13px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background-color: #6847ff;
+    transform: translateY(-3px);
+}
+
+.botao-secundario {
+    background-color: transparent;
+    border: 1px solid #7c5cff;
+    color: #7c5cff;
+}
+
+.botao-secundario:hover {
+    background-color: #7c5cff;
+    color: #ffff;
+}
+
+/* ==================== */
+/* SEÇÕES               */
+/* ==================== */
+
+section {
+    padding: 100px 10%;
+}
+
+.titulo-secao {
+    margin-bottom: 50px;
+}
+
+.titulo-secao p {
+    color: #7c5cff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+} 
+.titulo-secao h2 {
+    font-size: 30px;
+}
+
+/* ==================== */
+/* SOBRE                */
+/* ==================== */
+
+.sobre {
+    background-color: #15151d;
+}
+
+.sobre-conteudo {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.sobre-texto {
+    flex: 1;
+    color: #b8b8c7;
+}
+.sobretexto p {
+    margin-bottom: 20px;
+}
+
+.habilidades {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.habilidade {
+    background-color: #1d1d27;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #7c5cff;
+}
+
+.habilidade h3 {
+    margin-bottom: 5px;
+}
+
+.habilidade p {
+    color: #9292a0;
+    font-size: 14px;
+}
+/* ==================== */
+/* PROJETOS             */
+/* ==================== */
+
+.projetos-secao {
+    background-color: #0f0f14;
+}
+
+.projetos {
+    display: flex;
+    gap: 25px;
+}
+
+.card {
+    flex: 1;
+    background-color: #191922;
+    padding: 30px;
+    border: 1px solid #292936;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #7c5cff;
+}
+
+.numero-projeto {
+    color: #7c5cff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card p {
+    color: #9c9cab;
+    margin-bottom: 25px;
+}
+
+.card a {
+    color: #7c5cff;
+    font-weight: bold;
+}
+
+
+/* ==================== */
+/* TECNOLOGIAS          */
+/* ==================== */
+
+.tecnologias {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.tecnologias span {
+    background-color: #262633;
+    color: #bdbdc9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+
+/* ==================== */
+/* CONTATO              */
+/* ==================== */
+
+.contato {
+    background-color: #15151d;
+    text-align: center;
+}
+
+.contato .titulo-secao {
+    margin-bottom: 20px;
+}
+
+.contato-texto {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    color: #9c9cab;
+}
+
+.contato-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+} 
+
+.contato-links a {
+    border: 1px solid #343442;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.contato-links a:hover {
+    border-color: #7c5cff;
+    color: #7c5cff;
+    transform: translateY(-3px);
+}
+
+/* ==================== */
+/* RODAPÉ               */
+/* ==================== */
+
+footer {
+    padding: 25px 10%;
+    background-color: #0b0b10;
+    color: #737380;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+/* ==================== */
+/* RESPONSIVIDADE       */
+/* ==================== */
+
+@media (max-width: 800px) {
+
+/* ==================== */
+/* MENU / HEADER        */
+/* ==================== */
+
+header {
+    height: auto;
+    padding: 20px 5%;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+/* ==================== */
+/* LINKS DO MENU        */
+/* ==================== */
+
+nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+/* ==================== */
+/* INICIO               */
+/* ==================== */
+
+.inicio {
+    min-height: auto;
+    padding: 70px 5%;
+
+}
+
+.apresentacao {
+    font-size: 24px;
+
+}
+
+.inicio h1 {
+    font-size: 48px;
+}
+
+.inicio h2 {
+    font-size: 24px;
+}
+
+.descricao {
+    font-size: 16px;
+}
+
+/* ==================== */
+/* TODAS AS SEÇÕES      */
+/* ==================== */
+
+section{
+    padding: 70px 5%;
+
+}
+
+/* ==================== */
+/* SOBRE                */
+/* ==================== */
+
+.sobre-conteudo {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* ==================== */
+/* PROJETOS             */
+/* ==================== */
+
+.projetos {
+    flex-direction: column;
+
+}
+/* ==================== */
+/* BOTÕES               */
+/* ==================== */
+
+.botoes {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ==================== */
+/* CONTATO              */
+/* ==================== */
+
+.contato-links {
+    flex-wrap: wrap;
+}
+
+/* ==================== */
+/* RODAPÉ               */
+/* ==================== */
+
+footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+}
