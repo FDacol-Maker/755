@@ -3,3 +3,4 @@ ssh francisco755@193.111.116.99
 cd www
 git pull
 deploy.sh php
+https://francisco755.devlook.xyz/
