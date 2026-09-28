@@ -28,10 +28,10 @@
       <h2>Francisco <span>Dacol</span></h2>
      </div>
      <nav>
-          <a href="#inicio">inicio</a>
-          <a href="#sobre">sobre</a>
-          <a href="#projetos">projetos</a>
-          <a href="#contato">contato</a>
+          <a href="#inicio">INICIO</a>
+          <a href="#sobre">SOBRE</a>
+          <a href="#projetos">PROJETOS</a>
+          <a href="#contato">CONTATO</a>
      </nav>
     </header>
 
@@ -43,9 +43,9 @@
         <div class="inicio-conteudo">
             <p class="apresentacao">Olá, eu sou</p>
             <h1>Francisco Dacol</h1>
-            <h2>desenvolvedor de software</h2>
+            <h2>Desenvolvedor de Softwares e Sistemas.</h2>
             <p class="descricao">
-             gosto de fazer projetos, e fazer ideias virarem projetos.
+             Crio ideias para criação de sites e programação de sistemas.
             </p>
             <div class="botoes">
                 <a href="#projetos" class="botao">Ver projetos</a>
@@ -63,18 +63,18 @@
         <div class="sobre-conteudo">
          <div class="sobre-texto">
             <p>
-                Sou desenvolvedor de software e apaixonado por tecnologia.
-                gosto de aprender novas ferramentas e criar novos projetos que resolvam problemas reais.
+                Olá! Me chamo Francisco e sou um desenvolvedor de softwares e sistemas.
+                Utilizo minhas habilidades no mundo da programação/formatação para solucionar problemas reais.
             </p>
             <p> 
-            atualmente estudo desenvovimento de sistemas e trabalho
-            com diferentes tecnologias para construir aplicações modernas e funcionais 
+            Atualmente estudante de desenvolvimento de sistemas focado na criação de sites.
+            Atuo com diferentes técnologias para aprimorar minhas habilidades e satisfazer meus futuros clientes.
             </p>
          </div>
          <div class="habilidades">
              <div class="habilidade">
                 <h3>HTML</h3>
-                <P>Estilizção e criação de paginas web.</P>
+                <P>Estilização e criação de paginas web.</P>
              </div>
              <div class="habilidade">
              <h3>CSS</h3>
@@ -107,7 +107,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">ver projetos</a>
+                <a href="cadastro.html">Ver Projetos</a>
             </div>
             <!--PROJETO-->
          <div class="projetos">
@@ -124,7 +124,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">ver projetos</a>
+                <a href="cadastro.html">Ver Projetos</a>
             </div>
             <!--PROJETO-->
          <div class="projetos">
@@ -141,7 +141,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">ver projetos</a>
+                <a href="cadastro.html">Ver Projetos</a>
             </div>
             <!-- PROJETO 3 -->
          <div class="projetos">
@@ -158,18 +158,18 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">ver projetos</a>
+                <a href="cadastro.html">Ver Projetos</a>
             </div>
          </div>
       </section>
       <section id="contato" class="contato">
         <div class="titulo-secao">
-            <p>vamos conversar?</p>
-            <h2>contato</h2>
+            <p>Vamos Conversar?</p>
+            <h2>Contato</h2>
         </div>
         <div class="contato-links">
-            <a href="https://wa.me/1234567891011"></a>
-            <a href="francisco.dacol@aluno.senai.br">email</a>
+            <a href="https://wa.me/1234567891011">WhatsApp</a>
+            <a href="francisco.dacol@aluno.senai.br">E-mail</a>
             <a href="https://github.com/FDacol-Maker/755">Github</a>
             <a href="">Linkedin</a>
         </div>
@@ -177,7 +177,7 @@
     </main>
     <footer>
         <p>
-           desenvolvido por <a href="https://look.devlook.xyz">Francisco Dacol</a>
+           Desenvolvido por <a href="https://look.devlook.xyz">Francisco Dacol</a>
         </p>
         <p>
         HTML + CSS
