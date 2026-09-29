@@ -127,18 +127,18 @@ if ($idade > 18)
          <div class="projetos">
             <div class="card">
                 <div class="numero-projeto">
-                    01
+                    02
                 </div>
-                <h3>Sistemas de cadastro</h3>
+                <h3>Sistemas de idade</h3>
                 <p>
-                    Descrição do sistema do cadastro
+                    Descrição do sistema do idade
                 </p>
                 <div class="tecnologias">
                     <span>HTML</span>
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">Ver Projetos</a>
+                <a href="idade.php">Ver Projetos</a>
             </div>
             <!--PROJETO-->
          <div class="projetos">
