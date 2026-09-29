@@ -21,8 +21,7 @@ if ($idade > 18) {
 <body>
     <header>
         <nav>
-            <a href="idade.php">inicio </a>
-            <a hrep="cadastro.html">CADASTROS </a>
+            <a href="index.php">inicio </a>
         </nav>
     </header>
 </body>
