@@ -31,4 +31,139 @@ $idade = 20;
 $altura = 1,73;
 $matricula_ativa = true;
 
----------------------------------------------------------------------------------
+------------------------ EXPLICAÇÕES DE HTML E CSS ------------------------------
+
+
+HTML estrutura básica do site
+CSS decorações do site
+
+
+Sempre HTML antes de CSS, sempre a estrutura antes da decoração
+Nomear o arquivo.html e .css como index porque o navegador busca diretamente por esse nome
+
+
+------------------------------------------------------------------------------------------
+escrever "!" abre a estrutura cinco (mais atual) do HTML para criação de sites
+
+
+<!DOCTYPE html>
+--------------------------
+
+(Linguagem do site abaixo)
+
+<html lang="pt-br">
+
+(Configurações ocultas do site ficam no head, aquilo que não mostra no site) 
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francisco Dacol | Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+</head>
+--------------------------
+
+(Body contém tudo que é visível no site, a página inteira)
+
+<body>
+
+</body>
+</html>
+
+a tag "h1" é o título do site sem ser o nome da página. Vái até o h6 conforme nível de prioridade/importância. 
+"hX" é sempre título.
+
+
+com a tag "img" é possível criar imagens
+
+
+--------------------------------------------------------------------------------------------------------------
+
+CSS
+
+Para fazer com que o css identifique que você está editando o html e vincula-lo, você usa a tag "link" dentro do html.
+
+href é qual arquivo será linkado no css.
+
+<link rel="stylesheet" href="index.css">
+
+O link deve ficar abaixo do título principal da guia(Site). O "tittle". Sempre identifique se o arquivo que você inserir no href está dentro de uma pasta, pois é necessário adicionar o atalho.
+
+para personalizar elementos do site3 com CSS utiliza-se a tag correspondente com o html. Por exemplo:
+quero customizar "h1", portanto, no arquivo de css escreva h1, o programa vai identificar qual grupo você quer customizar/estilizar
+
+EX:
+
+h1
+{
+    color (cor do site) : white;
+    font-size(tamanho da fonte do elemento que está estilizando): 40px; (px são pixels)
+
+}
+
+Em alguns casos é necessário adicionar mais de um "h2" ou "h3" etc... Para adicionar mais de um h2 no body do código basta adicionar "class" entre a criação da tag h2 e o fim dela.
+EX:
+
+<h2 class = "teste"> </h2>
+
+
+div é um grupo, serve para separar os elementos do site em diferentes estilizações sem atrapalhar no código completo
+
+EX:
+
+<div> 
+    <h1>Olá Pessoal!</h1>
+</div>
+
+
+Para personalizar a tag div, no caso, um grupo específico de elementos do site, escreva "div" dentro do css.
+EX:
+
+div{
+    background-color: #white;
+    border-radius: 20px;
+}
+
+
+Para centralizar os elementos do site no css utiliza-se: display e os seguintes códigos:
+
+-------------------------------------------------------------------------------------------------------------------------------------
+Esse bloco de código serve para centralizar perfeitamente qualquer elemento no meio da tela (tanto na horizontal quanto na vertical).
+
+Em resumo:display: flex; Ativa o modo de alinhamento inteligente (Flexbox).
+
+flex-direction: column; Empilha os itens de cima para baixo (em coluna).
+
+align-items: center; Centraliza os itens na horizontal.
+
+justify-content: center; Centraliza os itens na vertical.
+
+EX:
+
+div{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+-------------------------------------------------------------------------------------------------------------------
+
+
+height pode ser usado para adaptar o tamanho do site a depender do diaplay aonde está sendo acessado, widht também:
+
+EX:
+height: 100vh;
+width: 100%
+
+(altura e largura)
+
+
+"button" é uma tag que pode ser usada para criar um botão no site, também pode ser customizado como as seções anteriores.
+
+EX:
+
+button{
+    background-color: #white;
+    font-size: 40px;
+
+}

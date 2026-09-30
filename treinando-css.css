@@ -1,0 +1,327 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html
+{
+
+    scroll-behavior: smooth;
+}
+
+
+
+body
+{
+background-color: #0f0e13;
+color: #cbd5e1;
+line-height: 1.6;
+}
+
+.container {
+    max-width: 1200;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a
+{
+ color: #a78bfa;
+ text-decoration: none;
+ transition: color 0.3s ease;   
+}
+
+a:hover
+{
+    color: #c4b5fd;
+    text-decoration: underline;
+}
+
+.cabecalho
+{
+    background-color: 16151c;
+    border-bottom: 1px solid #282633;
+    padding: 15 px 0;
+}
+
+.cabecalho-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo h1
+{
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo span
+{
+    color: #8b5cf6;
+}
+
+.busca-box
+{
+    display: flex;
+    background-color: #0f0e13;
+    border: 1px solid #282633;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.busca-box input
+{
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    color: #ffffff;
+    outline: none;
+}
+
+.busca-box button
+{
+    background-color: #8b5cf6;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3;
+}
+
+.busca-box button:hover
+{
+    background-color: #7c3aed;
+}
+
+.area-usuario
+{
+    display: flex;
+    gap: 10px;
+}
+
+.botao-login
+{
+    background: transparent;
+    border: 1px solid #8b5cf6;
+    color: #8b5cf6;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3 ease;
+}
+
+.botao-login:hover
+{
+    background: rgba(139, 92, 246, 0.1);
+}
+
+.botao-cadastro
+{
+    background-color: #8b5cf6;
+    border: none;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3 ease
+}
+
+.botao-cadastro:hover
+{
+    background-color: #7c3aed;
+}
+
+.menu-principal
+{
+    background-color: #1a1924;
+    border-bottom: 1px solid #282633;
+    padding: 10px 0;
+}
+
+.menu-lista
+{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.menu-item a
+{
+    color: #94a3b8;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.3;
+}
+
+.menu-item a:hover
+{
+    color: #8b5cf6;
+}
+
+.conteudo-principal
+{
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.secao-destaque
+{
+    flex: 2;
+    min-width: 0;
+}
+
+.secao-laterais
+{
+    flex: 1;
+}
+
+.card-destaque
+{
+    background-color: #16151c;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #282633;
+    margin-bottom: 30px;
+}
+
+.imagem-container
+{
+    position: relative;
+    width: 100%;
+}
+
+.imagem-destaque
+{
+    width: 100%;
+    display: block;
+    max-height: 400px;
+    object-fit: block;
+}
+
+.tag-categoria
+{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #8b5cf6;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.conteudo-destaque
+{
+    padding: 25px;
+}
+
+.titulo-destaque
+{
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.resumo-destaque
+{
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.meta-info
+{
+    display: flex;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: 64748b;
+    margin-bottom: 20px;
+}
+
+.leia-mais
+{
+    display: inline-block;
+    background-color: #8b5cf6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.leia-mais:hover
+{
+    background-color: #7c3aed;
+}
+
+.titulo-secao
+{
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    border-left: 4px solid #8b5cf6;
+    padding-left: 10px;
+}
+
+.card-menor
+{
+    background-color: #16121c;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #282633;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-menor:hover
+{
+    transform: translateY(-2px);
+    border-color: #8b5cf6;
+}
+
+.card-menor h3
+{
+    color: #f1f5f9;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.card-menor p
+{
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+}
+
+.data-post
+{
+    font-size: 0.75rem;
+    color: 64748b;
+}
+
+.rodape
+{
+    background-color: #16151c;
+    border-top: 1px solid #282633;
+    padding: 25px 0;
+    margin-top: 50px;
+    text-align: center;
+    color: 64748b;
+    font-size: 0.9rem;
+}
