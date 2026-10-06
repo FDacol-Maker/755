@@ -2,6 +2,16 @@
 
 $caminhoArquivo = 'dados/produtos.json';
 
+if(file_exists('dados'))
+{
+    mkdir('dados', 0777, true);
+}
+
+if(!file_exists($caminhoArquivo))
+{
+    file_put_contents($caminhoArquivo, json_encode([]));
+}
+
 $mensagem = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
