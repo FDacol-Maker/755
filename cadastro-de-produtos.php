@@ -1,7 +1,7 @@
 <?php
 
 $diretorioDados = __DIR__. '/dados';
-$caminhoArquivo = 'dados/produtos.json';
+$caminhoArquivo = '/produtos.json';
 
 
 
@@ -70,99 +70,7 @@ $produtosCadastrados = json_decode($conteudoJson, true) ?? [];
     <meta charset="UTF-8">
     <titte>Cadastro de Produtos</title>
         <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 30px;
-                background-color: #f4f4f9;
-            }
 
-            .container {
-                max-width: 650px;
-                margin: auto;
-                background: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-
-            h1,
-            h2 {
-                color: #333;
-                text-align: center;
-            }
-
-            .form-group {
-                margin-bottom: 15px;
-            }
-
-            label {
-                display: block;
-                font-weight: bold;
-                margin-bottom: 5px;
-            }
-
-            input[type="text"],
-            input[type="number"] {
-                width: 100%;
-                padding: 8px;
-                box-sizing: border-box;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-            fieldset {
-                border: 1px solid #ddd;
-                padding: 15px;
-                margin-bottom: 15px;
-                border-radius: 4px;
-            }
-
-            legend {
-                font-weight: bold;
-                padding: 0 5px;
-            }
-
-            button {
-                width: 100%;
-                padding: 10px;
-                background-color: #28a745;
-                color: white;
-                border: none;
-                border-radius: 4px;
-                font-size: 16px;
-                cursor: pointer
-            }
-
-            button:hover {
-                background-color: 218838;
-            }
-
-            .mensagem {
-                background: #e2e3e5;
-                padding: 10px;
-                border-radius: 4px;
-                margin-bottom: 20px;
-                text-align: center;
-                font-weight: bold;
-            }
-
-            .card-produto {
-                border: 1px solid #ccc;
-                background: #fafafa;
-                padding: 15px;
-                margin-bottom: 15px;
-                border-radius: 6px;
-            }
-
-            .card-produto h3 {
-                margin-top: 0;
-                color: #007bff;
-            }
-
-            .total-estoque {
-                font-weight: bold;
-                color: #d9534f;
-            }
         </style>
 </head>
 
