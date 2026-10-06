@@ -183,7 +183,7 @@ $produtosCadastrados = json_decode($conteudoJson, true) ?? [];
         <?php endif; ?>
 
         <!--- Formulário de Cadastro --->
-        <form action="" method="POST">
+        <form method="POST">
             <div class="form-group">
                 <label for="nome">Nome do Produto:</label>
                 <input type="text" id="nome" name="nome" required>
