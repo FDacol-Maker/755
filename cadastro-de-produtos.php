@@ -1,5 +1,10 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$diretorioDados = __DIR__. '/dados';
 $caminhoArquivo = 'dados/produtos.json';
 
 if(file_exists('dados'))
