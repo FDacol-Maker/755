@@ -121,7 +121,7 @@ if ($idade > 18)
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">Ver Projetos</a>
+                <a href="cadastro-de-produtos.php">Ver Projetos</a>
             </div>
             <!--PROJETO-->
          <div class="projetos">
@@ -155,7 +155,7 @@ if ($idade > 18)
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">Ver Projetos</a>
+                <a href="cadastro.php">Ver Projetos</a>
             </div>
             <!-- PROJETO 3 -->
          <div class="projetos">
@@ -172,7 +172,7 @@ if ($idade > 18)
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.html">Ver Projetos</a>
+                <a href="cadastro.php">Ver Projetos</a>
             </div>
          </div>
       </section>
