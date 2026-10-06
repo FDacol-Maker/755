@@ -1,156 +1,149 @@
 <?php
 
-$diretorioDados = __DIR__. '/dados';
-$caminhoArquivo = '/produtos.json';
+$arquivo = "dados/produtos.json";
 
-
-
-if(!file_exists($caminhoArquivo))
+// Checa se o formulário foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-    file_put_contents($caminhoArquivo, json_encode([]));
-}
+    //1 - RECEBER OS DADOS
+    $nome = $_POST["nome"];
+    $categoria = $_POST["categoria"];
+    $marca = $_POST["marca"];
+    $preco = $_POST["preco"];
+    $quantidade = $_POST["quantidade"];
+    $fabricanteNome = $_POST["fabricante_nome"];
+    $fabricantePais = $_POST["fabricante_pais"];
 
-$mensagem = '';
+    //2 - LER O ARQUIVO JSON
+    $conteudo = file_get_contents($arquivo);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //3 - CONVERTER O JSON PARA ARRAY EM PHP
+    $produtos = json_decode($conteudo, true);
 
-    $nome = $_POST['nome'] ?? '';
-    $categoria = $_POST['categoria'] ?? '';
-    $marca = $_POST['marca'] ?? '';
-    $preco = (float) ($_POST['preco'] ?? 0);
-    $quantidade = (int) ($_POST['quantidade'] ?? 0);
-    $fabricanteNome = $_POST['fabricante_nome'] ?? '';
-    $fabricantePais = $_POST['fabricante_pais'] ?? '';
-
-    if (!empty($nome) && !empty($categoria) && !empty($marca) && $preco > 0 && $quantidade >= 0) {
-
-        $novoProduto =
-            [
-                'nome' => $nome,
-                'categoria' => $categoria,
-                'marca' => $marca,
-                'preco' => $preco,
-                'quantidade' => $quantidade,
-                'fabricante' =>
-                [
-                    'nome' => $fabricanteNome,
-                    'pais' => $fabricantePais
-                ]
-            ];
-
-        $conteudoJson = file_get_contents($caminhoArquivo);
-
-        $produtos = json_decode($conteudoJson, true);
-
-        if (!is_array($produtos)) {
-            $produtos = [];
-        }
-
-        $produtos[] = $novoProduto;
-
-        $jsonAtualizado = json_encode($produtos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-
-        file_put_contents($caminhoArquivo, $jsonAtualizado);
-
-        $mensagem = "Produto cadastrado com sucesso!";
-    } else {
-        $mensagem = "Por favor, preencha todos os campos corretamente.";
+    //CASO O ARQUIVO SEJA INVÁLIDO
+    if (!is_array($produtos))
+    {
+        $produtos = [];
     }
+
+    //4 - CRIAR O ARRAY ASSOCIATIVO DO NOVO PROTUDO
+    $novoProduto = 
+    [
+        "nome" => $nome,
+        "categoria" => $categoria,
+        "marca" => $marca,
+        "preco" => $preco,
+        "quantidade" => $quantidade,
+        "fabricante" => 
+        [
+            "nome" => $fabricanteNome,
+            "pais" => $fabricantePais
+        ]
+
+    ];
+
+    //5 - ADICIONAR O PRODUTO AO ARRAY
+    $produtos[] = $novoProduto;
+
+    //6- CONVERTER O ARRAY NOVAMENTE PARA JSON
+    $json = json_encode
+    (
+        $produtos,
+        JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+    );
+
+    //7 - SALVAR NO ARQUIVO JSON
+    file_put_contents($arquivo, $json);
+
+
 }
-
-$conteudoJson = file_get_contents($caminhoArquivo);
-$produtosCadastrados = json_decode($conteudoJson, true) ?? [];
-
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <titte>Cadastro de Produtos</title>
-        <style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
 
-        </style>
+    <link rel="stylesheet" href="cadastro-de-produtos.css">
+
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>Cadastro de Protudo</h1>
+    <h1>CADASTRO DE PRODUTOS</h1>
 
-        <?php if (!empty($mensagem)) : ?>
-            <div class="mensagem"><?= htmlspecialchars($mensagem) ?></div>
-        <?php endif; ?>
+    <form method ="POST">
+        <label>NOME DO PRODUTO:</label>
+        <input type="text" name="nome" required>
+        <br><br>
 
-        <!--- Formulário de Cadastro --->
-        <form method="POST">
-            <div class="form-group">
-                <label for="nome">Nome do Produto:</label>
-                <input type="text" id="nome" name="nome" required>
-            </div>
+        <label>MARCA:</label>
+        <input type="text" name="marca" required>
+        <br><br>
 
-            <div class="form-group">
-                <label for="marca">Marca:</label>
-                <input type="text" id="marca" name="marca" required>
-            </div>
+        <label>PREÇO:</label>
+        <input type="number" name="preco" step="0.01" min="0" required>
+        <br><br>
 
-            <div class="form-group">
-                <label for="preco">Preço (R$): </label>
-                <input type="number" id="preco" name="preco" step="0.01" min="0.01" required>
-            </div>
+        <h2>FABRICANTE:</h2>
 
-            <!--- Dados do Fabricante --->
-            <fieldset>
-                <legend>Informações do Fabricante</legend>
-                <div class="form-group">
-                    <label for="fabricante_nome">Nome do Fabricante:</label>
-                    <input type="text" id="fabricante_nome" name="fabricante_nome" required>
-                </div>
+        <label>Nome do Fabricante:</label>
+        <input type="text" name="fabricante_nome" required>
+        <br><br>
 
-                <div class="form-group">
-                    <label for="fabricante_pais">País de Origem:</label>
-                    <input type="text" id="fabricante_pais" name="fabricante_pais" required>
-                </div>
-            </fieldset>
+        <label>País de Origem:</label>
+        <input type="text" name="fabricante_pais" required>
+        <br><br>
 
-            <button type="submit">Cadastrar Protudo</button>
-        </form>
+        <button type="submit">CADASTRAR PRODUTO</button>
 
-        <hr style="margin: 30px 0;">
+    </form>
 
-        <!--- Seção de Exibição dos Produtos --->
-        <h2>PRODUTOS CADASTRADOS</h2>
+    <hr>
 
-        <?php if (empty($produtosCadastrados)): ?>
-            <p style="text-align:  center;">Nenhum produto cadastrado ainda.</p>
-        <?php else: ?>
-            <?php foreach ($produtosCadastrados as $produto): ?>
-                <?php
+    <h2>PRODUTOS CADASTRADOS</h2>
 
-                // DESAFIO EXTRA: Cálculo do valor total em estoque
-                $valorTotalEstoque = $produto['preco'] * $produto['quantidade'];
-                ?>
-                <div class="card-produto">
-                    <h3><?= htmlspecialchars($produto['nome']) ?></h3>
-                    <p><strong>Categoria:</strong> <?= htmlspecialchars($produto['categoria']) ?></p>
-                    <p><strong>Marca:</strong> <?= htmlspecialchars($produto['marca']) ?></p>
-                    <p><strong>Preço Unitário:</strong> R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
-                    <p><strong>Quantidade em Estoque:</strong> <?= $produto['quantidade'] ?></p>
+    <?php
 
-                    <p><strong>Fabricante:</strong> <?= htmlspecialchars($produto['fabricante']['nome']) ?> (<?= htmlspecialchars($produto['fabricante']['pais']) ?>)</p>
+    //LER OS PRODUTOS ARMAZENADOS
+    $conteudo = file_get_contents($arquivo);
 
-                    <!--- Exibição do Desafio Extra --->
-                    <p class="total-estoque">
-                        Valor total em estoque: R$ <?= number_format($valorTotalEstoque, 2, ',', '.') ?>
-                    </p>
+    //CONVERTER JSON PARA ARRAY PHP
+    $produtos = json_decode($conteudo, true);
 
-                </div>
-            <?php endforeach; ?>
+    if(!empty($produtos)) 
+    {
 
-        <?php endif; ?>
-    </div>
+        $valorTotal = 0;
+
+        foreach ($produtos as $produto)
+        {
+            echo "<div>";
+
+            echo "<p><strong>Nome:</strong> ". htmlspecialchars($produto["nome"]). "</p>";
+            echo "<p><strong>Categoria:</strong> ". htmlspecialchars($produto["categoria"]). "</p>";
+            echo "<p><strong>Marca:</strong> ". htmlspecialchars($produto["marca"]). "</p>";
+            echo "<p><strong>Preço:</strong>" . htmlspecialchars($produto["preco"], 2, ",","."). "</p>";
+            echo "<p><strong>Quantidade:</strong>" . htmlspecialchars ($produto["quantidade"]) . "</p>";
+
+            echo "<p><strong>Fabricante:</strong>" . htmlspecialchars($produto["fabricante"]["nome"]) . "</p>";
+
+            //DESAFIO EXTRA
+            $valorTotal += $produto["preco"] * $produto["quantidade"];
+
+            echo "<p><strong>Valor total em estoque:</strong> R$". number_format($valorTotal,2,",","."). "</p>";
+
+            echo "<hr>";
+            echo "</div>";
+            
+        }
+    }   else
+    {
+        echo "<p>Nenhum produto cadastrado.</p>";
+    }
+    ?>
 
 </body>
-
 </html>
