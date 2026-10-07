@@ -1,6 +1,6 @@
 <?php
 
-$arquivo = "dados/produtos.json";
+$arquivo = "../dados/produtos.json";
 
 // Checa se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST")

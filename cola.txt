@@ -5,6 +5,8 @@ git pull
 deploy.sh php
 https://francisco755.devlook.xyz/
 
+cd .. (Volta uma pagina na VPS)
+
 
 ---------------------------- ABRE O CÓDIGO DE PHP -------------------------------
 <?php
