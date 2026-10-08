@@ -1,39 +1,10 @@
-<?php
-
-$nome = "Francisco";
-$idade = 20;
-$altura = 1.73;
-$matricula_ativa = true;
-$resultado = "";
-
-if ($idade > 18)
-    {
-    $resultado = "É de maior!";
-    } 
-    
-    else 
-    
-    {
-    $resultado = "É de menor!";
-    }   
-
-
-
-
-?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francisco Dacol | Portfolio</title>
-    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
     <!-- MENU -->
