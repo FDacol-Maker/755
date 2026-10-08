@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px;
+    background-color: #8a8585;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1, h2{
+    color: #ffffff;
+    text-align: center;
+}
+
+.relatorio{
+    display: flex;
+    gap: 15px;
+    max-width: 440px;
+    margin: 20px auto;
+    background-color: #e2dcdc;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border-left: 5px solid #474040;
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+}
+
+form{
+    width: 400px;
+    background-color: #e2dcdc;
+    padding: 20px;
+    margin: 30px auto;
+    border: 1px solid #474040;
+    border-radius: 10px;
+}
+
+.campo{
+    margin-bottom: 5px;
+}
+
+label{
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea{
+    width: 94%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #8a8585;
+}
+
+button{
+    width: 100%;
+    background-color: #474040;
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #332e2e;
+}
+
+button.btn-excluir{
+    background-color: #a83232;
+    padding: 5px 10px;
+    font-size: 12px;
+    width: auto;
+}
+
+button.btn-excluir:hover{
+    background-color: #852525;
+}
+
+table{
+    width: 100%;
+    margin-top: 20px;
+    background-color: #e2dcdc;
+    border-radius: 10px;
+}
+
+th, td{
+    border: 1px solid #8a8585;
+    padding: 12px;
+    text-align: left;
+}
+
+th{
+    background-color: #474040;
+    color:white;
+}
+
+td select{
+    width: auto;
+    padding: 5px;
+    margin-bottom: 0;
+}
+
+.inline-form{
+    display: inline;
+    width: auto;
+    background: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
