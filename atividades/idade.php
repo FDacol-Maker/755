@@ -21,7 +21,7 @@ if ($idade > 18) {
 <body>
     <header>
         <nav>
-            <a href="index.php">inicio </a>
+            <a href="atividades/index.php">inicio </a>
         </nav>
     </header>
 </body>

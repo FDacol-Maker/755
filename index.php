@@ -119,14 +119,14 @@
                 </div>
                 <h3>Sistemas de cadastro</h3>
                 <p>
-                    Descrição do sistema do cadastro
+                    Descrição do sistema de Boletim
                 </p>
                 <div class="tecnologias">
                     <span>HTML</span>
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="atividades/cadastro-de-produtos.php">Ver Projetos</a>
+                <a href="atividades/funcoes2.php">Ver Projetos</a>
             </div>
             <!-- PROJETO 3 -->
          <div class="projetos">
