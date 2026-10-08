@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+'<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -92,7 +92,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro-de-produtos.php">Ver Projetos</a>
+                <a href="atividades/cadastro-de-produtos.php">Ver Projetos</a>
             </div>
             <!--PROJETO-->
          <div class="projetos">
@@ -109,7 +109,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="idade.php">Ver Projetos</a>
+                <a href="atividades/idade.php">Ver Projetos</a>
             </div>
             <!--PROJETO-->
          <div class="projetos">
@@ -126,7 +126,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.php">Ver Projetos</a>
+                <a href="atividades/cadastro-de-produtos.php">Ver Projetos</a>
             </div>
             <!-- PROJETO 3 -->
          <div class="projetos">
@@ -143,7 +143,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="cadastro.php">Ver Projetos</a>
+                <a href="atividades/cadastro.php">Ver Projetos</a>
             </div>
          </div>
       </section>
