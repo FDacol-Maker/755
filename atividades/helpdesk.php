@@ -31,6 +31,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             header("Location: helpdesk.php");
             exit;
         }
+
+        if ($acao == "excluir")
+        {
+            $index = $_POST["index"];
+
+            excluirChamado($index);
+            header("Location: helpdesk.php");
+            exit;
+        }
 }
 
 //RECUPERA OS DADOS E GERA OS TOTAIS DO RELATÓRIO
@@ -140,7 +149,7 @@ $totalResolvidos = contarStatus("Resolvido");
                     //COLUNA COM SELECT PRA ATUALIZAR O STATUS
                     echo "<td>";
                     echo "<form method='POST' class='inline-form'>";
-                    echo"<input type='hidden' name='acao' value'" . $index . "'>";
+                    echo"<input type='hidden' name='acao' value'atualizar'>" . $index . "'>";
                     echo "<input type='hidden' name='index' value='" . $index . "'>";
                     echo "<select name='status' onchange='this.form.submit()'>";
 
