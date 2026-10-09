@@ -58,7 +58,7 @@ $totalResolvidos = contarStatus("Resolvido");
      <div class="card" ><strong>Total Geral:</strong> <?php echo $totalGeral; ?></div>
      <div class="card" ><strong>Abertos: </strong> <?php echo $totalAbertos; ?></div>
      <div class="card"><strong>Em Andamento: </strong> <?php echo $totalAndamento; ?></div>
-     <div class="card"><strong>Resolvidos:</strong> <php echo $totalResolvidos; ?></div>
+     <div class="card"><strong>Resolvidos:</strong> <?php echo $totalResolvidos; ?></div>
 
      </div>
 
@@ -107,7 +107,7 @@ $totalResolvidos = contarStatus("Resolvido");
 
       <hr>
 
-      <h2>CHAMADOS REGISTRADOS</hr>
+      <h2>CHAMADOS REGISTRADOS</h2>
 
       <table>
         <thead>
@@ -121,7 +121,7 @@ $totalResolvidos = contarStatus("Resolvido");
                 <th>Ações</th>
             </tr>
         </thead>
-        <tbody
+        <tbody>
             <?php
 
             if (!empty($chamados)) 
@@ -138,10 +138,39 @@ $totalResolvidos = contarStatus("Resolvido");
                     //COLUNA COM SELECT PRA ATUALIZAR O STATUS
                     echo "<td>";
                     echo "<form method='POST' class='inline-form'>";
-                    echo"input type='hidden' name='acao' value'" . $index . "'>";
-                    echo "<input type='hidden' name='index' value='" .index . "'>";
+                    echo"<input type='hidden' name='acao' value'" . $index . "'>";
+                    echo "<input type='hidden' name='index' value='" . $index . "'>";
+                    echo "<select name='status' onchange='this.form.submit()'>";
+
+                    //CONDICIONAIS PARA MARCAR O ITEM SELECIONADO
+                    if ($chamado["status"] == "Aberto") { echo "<option value='Aberto' selected>Aberto</option>"; } else { echo "<option value='Aberto'>Aberto</option>"; }
+                    if ($chamado["status"] == "Em andamento") { echo "<option value='Em andamento' selected>Em andamento</option>"; } else { echo "<option value='Em andamento'>Em andamento</option>"; }
+                    if ($chamado["status"] == "Resolvido") { echo "<option value='Resolvido' selected>Resolvido</option>"; } else { echo "<option value='Resolvido'>Resolvido</option>"; }
+                
+                    echo "</select>";
+                    echo "</form>";
+                    echo "</td>";
+
+                    //COLUNA COM BOTÃO PARA EXCLUIR CHAMADO
+                    echo "<td>";
+                    echo "<form method='POST' class='inline-form'>";
+                    echo "<input type='hidden' name='acao' value='excluir'>";
+                    echo"<input type='hidden' name='index' value='" .$index . "'>";
+                    echo"<button type='submit' class='btn-excluir'>Excluir</button>";
+                    echo"</form>";
+                    echo"</td>";
+
+                    echo "</tr>";
                 }
+            } 
+            else 
+            {
+                echo "<tr><td colspan='7' style='text-align: center;'>Nenhum chamado registrado.</td></tr>";
             }
+
+            ?>
+
+        </tbody>
       </table>
 </body>
 </html>
