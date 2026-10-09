@@ -1,5 +1,5 @@
 <?php
-$arquivo ="chamados.json";
+$arquivo ="dados/chamados.json";
 
 function lerChamados(){
     global $arquivo;
