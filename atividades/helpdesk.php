@@ -1,5 +1,5 @@
 <?php
-require_once "helpdesk-func.php";
+require_once "atividades/helpdesk-func.php";
 
 //Processa as ações enviadas pelos formulários
 if ($_SERVER["REQUEST_METHOD"] == "POST")

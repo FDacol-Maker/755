@@ -1,6 +1,6 @@
 <?php
-$arquivo ="dados/chamados.json";
-
+$arquivo = __DIR__ . "../dados/chamados.json";
+ 
 function lerChamados(){
     global $arquivo;
     if(!file_exists($arquivo)) 
