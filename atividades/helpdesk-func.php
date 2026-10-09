@@ -1,5 +1,5 @@
 <?php
-$arquivo = __DIR__ . "../dados/chamados.json";
+$arquivo = __DIR__ . "/../dados/chamados.json";
  
 function lerChamados(){
     global $arquivo;
