@@ -143,7 +143,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="atividades/cadastro.php">Ver Projetos</a>
+                <a href="atividades/helpdesk.php">Ver Projetos</a>
             </div>
          </div>
       </section>
