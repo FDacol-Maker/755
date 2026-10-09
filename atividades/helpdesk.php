@@ -146,19 +146,21 @@ $totalResolvidos = contarStatus("Resolvido");
                     echo "<td>" . htmlspecialchars($chamado["descricao"]) . "</td>";
                     echo "<td>" . $chamado["prioridade"] . "</td>";
 
-                    //COLUNA COM SELECT PRA ATUALIZAR O STATUS
+                    //COLUNA COM SELECT PRA ATUALIZAR O STATUSf
                     echo "<td>";
                     echo "<form method='POST' class='inline-form'>";
                     echo"<input type='hidden' name='acao' value'atualizar'>" . $index . "'>";
                     echo "<input type='hidden' name='index' value='" . $index . "'>";
-                    echo "<select name='status' onchange='this.form.submit()'>";
+                    echo "<select name='status'>";
 
                     //CONDICIONAIS PARA MARCAR O ITEM SELECIONADO
                     if ($chamado["status"] == "Aberto") { echo "<option value='Aberto' selected>Aberto</option>"; } else { echo "<option value='Aberto'>Aberto</option>"; }
                     if ($chamado["status"] == "Em andamento") { echo "<option value='Em andamento' selected>Em andamento</option>"; } else { echo "<option value='Em andamento'>Em andamento</option>"; }
                     if ($chamado["status"] == "Resolvido") { echo "<option value='Resolvido' selected>Resolvido</option>"; } else { echo "<option value='Resolvido'>Resolvido</option>"; }
-                
+                    
+
                     echo "</select>";
+                    echo "<button type='submit' class='btn=atualizar' style='width: auto; padding: 5px 10px; margin-left: 5px; font-size: 12px;'>OK</button>"; 
                     echo "</form>";
                     echo "</td>";
 
