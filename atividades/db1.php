@@ -57,7 +57,7 @@
 
         $stmt = $pdo->prepare($sql);
 
-        $stmt->execute(["id" => "$id"]);
+        $stmt->execute();
 
         $produtoEditar = $stmt->fetch(PDO::FETCH_ASSOC);
     }
