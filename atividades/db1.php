@@ -1,10 +1,10 @@
 <?php
-    require_once "conexao.php";
+    require_once "../conexao.php";
                         // 1. CRIAR TABELA
     $sql = "CREATE TABLE IF NOT EXISTS produtos (
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(100) NOT NULL,
-        preco VARCHAR(10, 2) NOT NULL,
+        preco DECIMAL(10, 2) NOT NULL,
         quantidade INT NOT NULL)";
 
     $pdo->exec($sql);
@@ -29,7 +29,7 @@
         $preco = $_POST["preco"];
         $quantidade = $_POST["quantidade"];
 
-        $sql = "UPDATE produtos SET nome = '$nome', preco =$preco, quantidade = $quantidade WHERE id = $id";
+        $sql = "UPDATE produtos SET nome = '$nome', preco = $preco, quantidade = $quantidade WHERE id = $id";
 
         $stmt = $pdo->prepare($sql);
 
@@ -130,9 +130,9 @@
                 <td> <?= $produto["quantidade"] ?> </td>
                 <td>
                         <!-- EDITAR -->
-                    <a href="index.php?editar=<?= $produto['id'] ?>">Editar</a>
+                    <a href="db1.php?editar=<?= $produto['id'] ?>">Editar</a>
                         <!-- EXCLUIR -->
-                    <form method="POST" action="index.php" style="display:inline";>
+                    <form method="POST" action="db1.php" style="display:inline;">
                         <input type="hidden" name="id" value="<?= $produto['id'] ?>">
                         <button type="submit" name="excluir" onclick="return confirm ('Deseja excluir esse produto')">Excluir</button>
                     </form>
