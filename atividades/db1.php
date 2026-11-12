@@ -12,7 +12,7 @@
                         // 2. CADASTRAR PRODUTO
     if (isset($_POST["cadastrar"])) {
         $nome = $_POST["nome"];
-        $preco = $_POST["Preco"];
+        $preco = $_POST["preco"];
         $quantidade = $_POST ["quantidade"];
 
         $sql = "INSERT INTO produtos (nome, preco, quantidade) VALUES ('$nome', $preco, $quantidade)";
