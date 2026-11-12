@@ -6,8 +6,8 @@
 
 
 // host = "locahost"
-$host = '194.61.238.119(localhost)';
-$db = 'francisco755db1';
+$host = 'localhost';
+$db = 'francisco755_db1';
 $user = 'francisco755';
 $pass = '755!@#';
 $charset = 'utf8mb4';
