@@ -1,20 +1,40 @@
 <?php
-$host = 'localost';
-$dbname = 'francisco755_db1';
+
+// PHP: Linguagem que executa as regras do sistema.
+// MY SQL: SGBD (Sistema gerenciador de banco de dados)
+// PDO: Interface do PHP que permite conversar com o banco
+
+
+// host = "locahost"
+$host = 'localhost';
+$db = 'francisco755_db1';
 $user = 'francisco755';
 $pass = '755!@#';
 $charset = 'utf8mb4';
 
-try
-{
-    $pdo = new PDO("myswl:host=$host;charset=utf8", $username, $password);
-    $pdo-> setAttibute(PDO:: ATTR_ERRMODE,PDO:: ERRMODE_EXCEPTION);
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$db;charset=$charset",
+    $user,
+    $pass
+    );
 
-    $pdo->exec("CREATE DATABATE IF IT NOT EXISTS loja_informatica");
-    $pdo->("Use loja_informatica");
+    $pdo->setAttribute(
+
+        PDO::ATTR_ERRMODE,
+        PDO::ERRMODE_EXCEPTION 
+    );
+
+    echo "Conectado com sucesso!";
+
+
+
+
+    
 } catch (PDOException $e) {
-    echo "Erro na conexão: " . $e->getMessage();
-    exit;
+    echo "ERRO AO CONECTAR AO BANCO DE DADOS:\n";
+    echo $e->getMessage();
+
+
 }
 
 $sql = "CREATE TABLE IF IT NOT EXISTS produtos (
