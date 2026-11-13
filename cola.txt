@@ -8,6 +8,12 @@ gplusgames
 cd .. (Volta uma pagina na VPS)
 
 
+rm -rf www
+git clone francisco755... www
+cd www
+
+(sequencia pra entrar na VPS certo)
+
 ---------------------------- ABRE O CÓDIGO DE PHP -------------------------------
 <?php
 
