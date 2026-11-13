@@ -117,8 +117,9 @@ $produtos = $stmt->fetchALL(PDO::FETCH_ASSOC);
         <?php if ($produtoEditar) { ?>
         <input type="hidden" name="id" value ="<?=  $produtoEditar['id'] ?>">
         <?php } ?>    
+
         <label>Nome do Produto:</label>
-        <input type="text" name="nome" value="<?= $produtoEditar['nome'] ?? '' ?> required>
+        <input type="text" name="nome" value="<?= $produtoEditar['nome'] ?? '' ?> "> <required>
         <br><br>
 
         <label>Preco:</label>
