@@ -99,7 +99,38 @@ $produtos = $stmt->fetchALL(PDO::FETCH_ASSOC);
         <label>Quantidade:</label>
         <input type="number" name= "quantidade" min="0" required valye="<?=  $produtoEditar['quantidade'] ?? '' ?>" ?>
         <br><br>
+
+        <?php if ($produtosEditar) { ?>
+            <button type="submit" name = "atualizar">Atualiar Produto</button>
+        <?php} else {?>
+        <button type="subtmit" name="cadastrar">Cadastrar Produto</button>
+        <?php } ?>
     </form>
+    <hr>
+    <h2>Produtos Cadastrados</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+        </tr>
+        <?php foreach ($produtos as $produto) { ?>
+            <tr>
+                <td><?=  $rotudo["id"] ?></td>
+                <td><?=  htmlspecialchars($produto["nome"]) ?></td>
+                <td> R$ <?=  number_format($protudo["preco"], 2, ",", ".") ?></td>
+                <td> <?=  $protudo["quantidade"] ?></td>
+                <td>
+                    <a href="db2.php?editar=<? $protudo['id'] ?>">Editar</a>
+                    <form method="POST" action="db2.php" style="display:inline;">
+                        <input type="hidden" name="id" value="<?=  $protudo['id'] ?>">
+                        <button type="submit" name="excluir" onclick="return confirm('Deseja excluir esse produto?')">Excluir</button>
+                    </form>
+                </td>
+            </tr> }
+    </table>
     
 </body>
 </html>
