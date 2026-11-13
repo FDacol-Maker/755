@@ -1,8 +1,9 @@
 <?php
 $host = 'localost';
-$dbname = 'loja_informatica';
-$username = 'root';
-$password = '';
+$dbname = 'francisco755_db1';
+$user = 'francisco755';
+$pass = '755!@#';
+$charset = 'utf8mb4';
 
 try
 {
