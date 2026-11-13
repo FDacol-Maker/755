@@ -1,5 +1,5 @@
 <?php
-require_once "../atividades/conexão2.php";
+require_once  "/atividades/conexão2.php";
 
 $sql = "CREATE TABLE IF IT NOT EXISTS produtos (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -129,7 +129,8 @@ $produtos = $stmt->fetchALL(PDO::FETCH_ASSOC);
                         <button type="submit" name="excluir" onclick="return confirm('Deseja excluir esse produto?')">Excluir</button>
                     </form>
                 </td>
-            </tr> }
+            </tr>
+            <?php } ?>
     </table>
     
 </body>

@@ -145,6 +145,26 @@
                 </div>
                 <a href="atividades/helpdesk.php">Ver Projetos</a>
             </div>
+            
+               <!-- PROJETO 4 (Banco de dados)-->
+         <div class="projetos">
+            <div class="card">
+                <div class="numero-projeto">
+                    01
+                </div>
+                <h3>Loja de Informatica</h3>
+                <p>
+                    Descrição do sistema da Loja
+                </p>
+                <div class="tecnologias">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <!--span>PHP</span-->
+                </div>
+                <a href="paginas/db2.php">Ver Projetos</a>
+            </div>
+
+
          </div>
       </section>
       <section id="contato" class="contato">
