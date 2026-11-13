@@ -161,7 +161,7 @@
                     <span>CSS</span>
                     <!--span>PHP</span-->
                 </div>
-                <a href="/atividades/db2.php">Ver Projetos</a>
+                <a href="/db2.php">Ver Projetos</a>
             </div>
 
 
