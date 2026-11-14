@@ -7,7 +7,7 @@
 
 // host = "locahost"
 $host = 'localhost';
-$db = 'francisco755_db1';
+$db = 'francisco755_db2';
 $user = 'francisco755';
 $pass = '755!@#';
 $charset = 'utf8mb4';
@@ -74,13 +74,14 @@ if (isset($_POST["excluir"])) {
 
     $stmt->execute();
     $mensagem = "Produto excluído com sucesso!";
+    }
 }
 
 if (isset($_POST["vender"])) {
     $produto_id = $_POST["produto_id"];
     $qtd_vendida = $_POST["quantidade_venda"];
 
-    $prod = $pdo->query("SELECT FROM produtos WHERE id =$produto_id")->fetch(PDO::FETCH_ASSOC);
+    $prod = $pdo->query("SELECT * FROM produtos WHERE id =$produto_id")->fetch(PDO::FETCH_ASSOC);
 
     if($qtd_vendida <= 0){
         $mensagem = "A quantidade deve ser maior que zero!";
@@ -90,7 +91,7 @@ if (isset($_POST["vender"])) {
         $valor_total = $prod['preco'] * $qtd_vendida;
         $novo_estoque = $prod['quantidade'] - $qtd_vendida;
 
-        $pdo->exec("INSERT INTO vendas (produto_id, quantidade, valor_total, data_venda) VALUES ($produto_id, $qtd_vendida, $valor_total,'$data_venda')");
+        $pdo->exec("INSERT INTO vendas (produto_id, quantidade, valor_total, data_venda) VALUES ($produto_id, $qtd_vendida, $valor_total)");
         $pdo->exec("UPDATE produtos SET quantidade = $novo_estoque WHERE id = $produto_id");
 
         $mensagem = "Venda realizada com sucesso! Total: R$ " . number_format($valor_total, 2, '.','.');
