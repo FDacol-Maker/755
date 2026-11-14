@@ -7,7 +7,7 @@
 
 // host = "locahost"
 $host = 'localhost';
-$db = 'francisco755_db1';
+$db = 'francisco755_db2';
 $user = 'francisco755';
 $pass = '755!@#';
 $charset = 'utf8mb4';
@@ -64,11 +64,37 @@ if (isset($_POST["atualizar"])){
 if (isset($_POST["excluir"])) {
     $id = $_POST["id"];
 
+    $vendas_check = $pdo->query("SELECT COUNT(*) FROM vendas WHERE produto_id = $id")->fetchColumn();
+    if ($vendas_check > 0) {
+        $mensagem = "Erro: Este produto possui vendas registradas e não pode ser excluido!";    
+    } else {
     $sql = "DELETE FROM produtos WHERE id = $id";
 
     $stmt = $pdo->prepare($sql);
 
     $stmt->execute();
+    $mensagem = "Produto excluído com sucesso!";
+}
+
+if (isset($_POST["vender"])) {
+    $produto_id = $_POST["produto_id"];
+    $qtd_vendida = $_POST["quantidade_venda"];
+
+    $prod = $pdo->query("SELECT FROM produtos WHERE id =$produto_id")->fetch(PDO::FETCH_ASSOC);
+
+    if($qtd_vendida <= 0){
+        $mensagem = "A quantidade deve ser maior que zero!";
+    } elseif ($qtd_vendida > $prod['quantidade']) {
+        $mensagem = "Estoque insuficiente! Disponível: " . $prod['quantidade'];
+    } else {
+        $valor_total = $prod['preco'] * $qtd_vendida;
+        $novo_estoque = $prod['quantidade'] - $qtd_vendida;
+
+        $pdo->exec("INSERT INTO vendas (produto_id, quantidade, valor_total, data_venda) VALUES ($produto_id, $qtd_vendida, $valor_total,'$data_venda')");
+        $pdo->exec("UPDATE produtos SET quantidade = $novo_estoque WHERE id = $produto_id");
+
+        $mensagem = "Venda realizada com sucesso! Total: R$ " . number_format($valor_total, 2, '.','.');
+    }
 }
 
 $produtoEditar = null;
@@ -123,7 +149,7 @@ $produtos = $stmt->fetchALL(PDO::FETCH_ASSOC);
         <br><br>
 
         <label>Preco:</label>
-        <input type="number" name= "preco" step="0.01" min=0 required value ="<? $produtoEditar['preco'] ?? '' ?>">
+        <input type="number" name= "preco" step="0.01" min=0 required value ="<?= $produtoEditar['preco'] ?? '' ?>">
         <br><br>
         <label>Quantidade:</label>
         <input type="number" name= "quantidade" min="0" required value="<?=  $produtoEditar['quantidade'] ?? '' ?>">
@@ -136,6 +162,24 @@ $produtos = $stmt->fetchALL(PDO::FETCH_ASSOC);
         <?php } ?>
     </form>
     <hr>
+
+    <h2>Registrar Venda</h2>
+    <form method="POST">
+        <label>Selecione o Produto:</label>
+        <select name="produto_id" required>
+            <?php foreach ($produtos as $p) { if ($p['quantidade'] > 0) { ?>
+            <option value="<? $p['id'] ?>"><?=  $p['nome'] ?> (Estoque: <?=  $p['quantidade'] ?>)</option>
+            <?php }} ?>
+
+        </select>
+        <br><br>
+        <label>Quantidade a Vender:</label>
+        <input type="number" name="quantidade_venda" min="1" value="1" required>
+        <br><br>
+        <button type = "submit" name="vender">Finalizar venda</button>
+    </form>
+    <hr>
+
     <h2>Produtos Cadastrados</h2>
     <table>
         <tr>
@@ -160,6 +204,29 @@ $produtos = $stmt->fetchALL(PDO::FETCH_ASSOC);
                 </td>
             </tr>
             <?php } ?>
+    </table>
+    <hr>
+
+    <h2>Histórico de Vendas</h2>
+    <table>
+        <tr>
+            <th>ID Venda</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor Total</th>
+            <th>Data</th>
+        </tr>
+        <?php foreach ($vendas as $v) { ?>
+        <tr>
+            <td><?=  $v["id"] ?></td>
+            <td><?=  htmlspecialchars($v["produto_nome"]) ?></td>
+            <td><?=  $v["quantidade"] ?></td>
+            <td>R$ <?=  number_format($v["valor_total"], 2, ",", ".") ?></td>
+            <td><?=  date('d/m/y H:i:s', strtotime($v["data_venda"])) ?></td>
+        </tr>  
+        <?php } if(empty($vendas)) { ?>
+        <tr><td colspan="5">Nenhuma venda registrada ainda.</td></tr>
+        <?php } ?>
     </table>
     
 </body>
