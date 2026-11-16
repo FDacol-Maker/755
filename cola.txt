@@ -175,3 +175,41 @@ button{
     font-size: 40px;
 
 }
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+1. DDL (Data Definition Language)
+O que significa: Linguagem de Definição de Dados.
+
+Função: Cuida da estrutura do banco de dados. É usada para criar, alterar ou excluir a arquitetura (tabelas, colunas, índices e o próprio banco).
+
+Principais comandos:
+
+CREATE: Cria novos objetos (como um banco de dados ou uma tabela).
+
+ALTER: Modifica a estrutura de uma tabela existente (adicionando ou removendo colunas, por exemplo).
+
+DROP: Apaga um objeto inteiro (tabela ou banco de dados).
+
+2. DML (Data Manipulation Language)
+O que significa: Linguagem de Manipulação de Dados.
+
+Função: Cuida dos dados em si dentro das tabelas (as linhas/registros). É usada para inserir, atualizar ou remover informações.
+
+Principais comandos:
+
+INSERT: Insere novos registros/linhas em uma tabela.
+
+UPDATE: Modifica dados que já existem.
+
+DELETE: Remove registros de uma tabela.
+
+3. DQL (Data Query Language)
+O que significa: Linguagem de Consulta de Dados.
+
+Função: Focada exclusivamente em consultar e recuperar informações armazenadas nas tabelas. (Nota: Em muitas literaturas antigas, ela é considerada parte do DML).
+
+Principais comandos:
+
+SELECT: Busca e filtra os dados para visualização.
