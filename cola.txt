@@ -213,3 +213,162 @@ Função: Focada exclusivamente em consultar e recuperar informações armazenad
 Principais comandos:
 
 SELECT: Busca e filtra os dados para visualização.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+OQUE È SQL INJECTION
+
+Como funciona?
+Isso acontece quando uma aplicação aceita entradas de usuários (como em um campo de login, barra de pesquisa ou formulário) sem validar ou filtrar os dados corretamente. Se o sistema interpretar o texto digitado como código SQL em vez de apenas texto comum, comandos maliciosos podem ser executados no banco de dados.
+
+Riscos principais
+Acesso não autorizado: Contornar telas de login.
+
+Roubo de dados: Ler informações sensíveis, como senhas e dados pessoais.
+
+Destruição de dados: Apagar ou modificar tabelas inteiras do banco.
+
+Como prevenir?
+Usar Prepared Statements (Consultas Parametrizadas).
+
+Validar e higienizar estritamente todas as entradas fornecidas pelos usuários.
+
+
+
+
+
+Exemplo clássico: O Bypass de Login
+Imagine que um site tem um sistema de login onde o código backend executa esta consulta SQL com o que o usuário digitou:
+
+SQL
+
+
+SELECT * FROM usuarios WHERE email = 'DIGITADO_PELO_USUARIO' AND senha = 'SENHA_DIGITADA';
+Se o programador não tratou a entrada, um atacante pode digitar o seguinte no campo de e-mail:
+
+admin@email.com' OR '1'='1
+
+O banco de dados vai interpretar a consulta final assim:
+
+SQL
+
+
+SELECT * FROM usuarios WHERE email = 'admin@email.com' OR '1'='1' AND senha = '...';
+Como '1'='1' é sempre verdadeiro, a condição inteira se torna verdadeira. O banco de dados retorna o primeiro usuário encontrado (geralmente o administrador) e o invasor entra no sistema sem saber a senha.
+
+Como funciona a prevenção (Prepared Statements)
+A melhor forma de bloquear o SQL Injection é separar o código SQL dos dados do usuário.
+
+Em vez de concatenar texto diretamente na query, usamos parâmetros (ou placeholders). Veja um exemplo conceitual em código seguro (usando PHP/PDO como referência):
+
+❌ Código Vulnerável (Concatenação direta)
+PHP
+
+
+// Perigoso: o usuário pode injetar comandos no meio da string
+$sql = "SELECT * FROM usuarios WHERE email = '" . $_POST['email'] . "'";
+Código Seguro (Prepared Statement)
+PHP
+
+
+// Seguro: o banco de dados trata o valor estritamente como dado, nunca como código
+$stmt = $pdo->prepare('SELECT * FROM usuarios WHERE email = ?');
+$stmt->execute([$_POST['email']]);
+$usuario = $stmt->fetch();
+Com o Prepared Statement, se o usuário digitar ' OR '1'='1, o banco de dados vai procurar literalmente por um usuário cujo e-mail tenha essa frase inteira, falhando a tentativa de invasão.
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+OQUE É CONCATENAR?
+
+
+Concatenar significa simplesmente juntar, ligar ou encadear duas ou mais coisas — na grande maioria das vezes, strings (textos ou pedaços de texto).
+
+Pense nisso como colar duas palavras ou frases uma na ponta da outra para formar um texto maior.
+
+Exemplos do dia a dia:
+Se você tem o texto "Olá, " e o texto "Maria!", ao concatená-los, você obtém: "Olá, Maria!".
+
+Se você tem o nome "João" e o sobrenome " Silva", a concatenação resulta em "João Silva".
+
+Na programação, como vimos no PHP, usamos operadores (como o ponto . ou o sinal de mais +, dependendo da linguagem) para dizer ao computador que queremos unir esses pedaços de texto em uma coisa só.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+1. Vulnerabilidade
+O que é: É uma falha, brecha ou fraqueza no código, na configuração ou na arquitetura de um sistema (como um site ou banco de dados) que pode ser aproveitada por alguém mal-intencionado para invadir ou causar danos.
+
+2. Payload
+O que é: Em segurança da informação, é a carga útil — ou seja, o trecho de código ou comando malicioso que um invasor tenta fazer o sistema executar (como o código SQL em um ataque de SQL Injection).
+
+3. Prepared Statement (Consulta Preparada)
+O que é: Um recurso de segurança em bancos de dados que separa a estrutura do código SQL dos dados enviados pelo usuário. Ele garante que o banco trate a entrada sempre como puro texto, bloqueando tentativas de injeção de código.
+
+4. Placeholder (Marcador de posição)
+O que é: Um espaço reservado (geralmente representado por um ponto de interrogação ? ou um nome com dois-pontos, como :usuario) dentro de um Prepared Statement. Ele indica onde o dado do usuário será inserido de forma segura mais tarde.
+
+5. Parameter Binding (Associação de parâmetros)
+O que é: O processo técnico de "ligar" o valor real que o usuário digitou aos placeholders da consulta. Isso diz ao banco de dados: "Insira este valor exatamente neste marcador, tratando-o apenas como dado".
+
+6. Least Privilege (Princípio do Menor Privilégio)
+O que é: Uma regra básica de segurança que diz que um usuário, sistema ou aplicativo deve ter apenas os acessos mínimos necessários para realizar a sua tarefa, e nada além disso. Por exemplo: um site de notícias precisa conseguir ler artigos, mas não precisa (e não deve) ter permissão para apagar o banco de dados inteiro.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+No contexto de segurança da informação e desenvolvimento web, XSS significa Cross-Site Scripting. É uma vulnerabilidade que permite a um atacante injetar scripts maliciosos (geralmente em JavaScript) em páginas web visualizadas por outros usuários.
+
+Os 3 principais tipos de XSS são:
+
+1. XSS Armazenado (Stored XSS / Persistente)
+Como funciona: É considerado o tipo mais perigoso. O código malicioso é enviado pelo atacante e salvo permanentemente no banco de dados do servidor (por exemplo, em um comentário de blog, fórum ou mensagem de perfil).
+
+O que acontece: Sempre que qualquer usuário entra na página e carrega aquele comentário ou mensagem, o script malicioso é executado automaticamente no navegador dele.
+
+Exemplo: Deixar um comentário malicioso em uma rede social que rouba a sessão de quem o visualizar.
+
+2. XSS Refletido (Reflected XSS / Não Persistente)
+Como funciona: O código malicioso não fica salvo no servidor. Ele vem direto de uma requisição feita pelo usuário, geralmente através de um link fraudulento.
+
+O que acontece: O atacante cria um link malicioso (muitas vezes disfarçado) e faz a vítima clicar nele. O link envia o script para o site vulnerável, que "reflete" o script de volta para o navegador da vítima, executando-o imediatamente.
+
+Exemplo: Um link de suporte falso que contém o script na própria URL; quando a pessoa clica, o script roda no navegador dela.
+
+3. XSS Baseado no DOM (DOM-based XSS)
+Como funciona: Ocorre inteiramente no lado do cliente (no navegador do usuário), sem que o servidor precise processar diretamente o script malicioso. A vulnerabilidade está no código JavaScript do próprio site (no DOM - Document Object Model).
+
+O que acontece: O script do site lê dados inseguros da URL (como fragmentos # ou parâmetros) e os manipula de forma incorreta, fazendo com que o navegador execute o código injetado.
+
+Exemplo: Um script em uma página de pesquisa que pega o que foi digitado na barra de endereços e o insere diretamente na página sem validação.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+A diferença principal entre DDL, DML e DQL (e note que você provavelmente quis dizer DDL em vez de DLL) está no objetivo de cada grupo de comandos em um banco de dados:
+
+DDL (Estrutura): Cuida da arquitetura e formato do banco de dados (criar, modificar ou apagar tabelas e colunas).
+
+Comandos principais: CREATE, ALTER, DROP.
+
+DML (Dados): Cuida da modificação dos registros (linhas) dentro das tabelas (inserir, atualizar ou apagar informações).
+
+Comandos principais: INSERT, UPDATE, DELETE.
+
+DQL (Consulta): Focado exclusivamente em buscar e ler os dados armazenados.
+
+Comando principal: SELECT.
+
+Em resumo: o DDL monta o esqueleto (as tabelas), o DML mexe nos dados (coloca e tira informações) e o DQL serve para você enxergar esses dados.
