@@ -112,7 +112,7 @@ if (isset($_GET['editar']))
 {
     $stmt = $pdo->prepare('SELECT * FROM produtos WHERE id =?');
     $stmt = $stmt->fetch(PDO::FETCH_ASSOC);
-    $editar = $stmt->(PDO::FETCH_ASSOC);
+    $editar = $stmt->PDO::FETCH_ASSOC;
 }
 
 $total = $pdo->query('SELECT COUNT(*) FROM produtos')->fetchColumn();
