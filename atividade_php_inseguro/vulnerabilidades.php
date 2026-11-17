@@ -52,6 +52,7 @@ if ($acao === 'sair') {
 
 
 // NOVAMENTE SUBSTITUINDO CONCATENAÇÕES POR PREPARED STATEMENTS PARA EVITAR POSSÍVEIS BRECHAS DE SEGURANÇA.
+
 if ($acao === 'cadastrar') {
     $nome = $_POST['nome'] ?? '';
     $descricao = $_POST['descricao'] ?? '';
@@ -63,8 +64,6 @@ if ($acao === 'cadastrar') {
     $mensagem = "Produto $nome cadastrado!";
 }
 
-
-
 if ($acao === 'atualizar') {
     $id = $_POST['id'] ?? '';
     $nome = $_POST['nome'] ?? '';
@@ -73,17 +72,25 @@ if ($acao === 'atualizar') {
     $estoque = $_POST['estoque'] ?? '';
     $categoria = $_POST['categoria'] ?? '';
 
-    //CONCATENADO POR PREPARED STATEMENT
+
+    //CONCATENADO POR PREPARED STATEMENT.
 
     $stmt = $pdo->prepare("UPDATE produtos SET nome=?, descricao=?, preco=?, estoque=?, categoria=? WHERE id=?");
     $stmt->execute([$nome, $descricao, $preco, $estoque, $categoria, $id]);
 
-
     $mensagem = 'Produto atualizado.';
+
+
 }
 if ($acao === 'excluir') {
     $id = $_GET['id'] ?? '';
-    $pdo->exec("DELETE FROM produtos WHERE id=$id");
+
+    //SUBSTITUIDO POR PREPARED STATEMENT.
+
+    $stmt = $pdo->prepare("DELETE FROM produtos WHERE id=?");
+    $stmt->execute([$id]);
+
+
     $mensagem = 'Produto excluído.';
 }
 $busca = $_GET['busca'] ?? '';
@@ -95,11 +102,23 @@ if ($categoriaFiltro !== '') {
 }
 $sqlLista .= " ORDER BY $ordem";
 $produtos = $pdo->query($sqlLista)->fetchAll(PDO::FETCH_ASSOC);
+
+
+
 $editar = null;
-if (isset($_GET['editar'])) {
-    $editar = $pdo->query('SELECT * FROM produtos WHERE id=' . $_GET['editar'])->fetch(PDO::FETCH_ASSOC);
+if (isset($_GET['editar'])) 
+    
+    
+{
+    $stmt = $pdo->prepare('SELECT * FROM produtos WHERE id =?');
+    $stmt = $stmt->fetch(PDO::FETCH_ASSOC);
+    $editar = $stmt->(PDO::FETCH_ASSOC);
 }
+
 $total = $pdo->query('SELECT COUNT(*) FROM produtos')->fetchColumn();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
