@@ -7,7 +7,7 @@
 error_reporting(E_ALL);
 session_start();
 
-$host = '127.0.0.1';
+$host = 'localhost';
 $banco = 'francisco755_db3';
 $usuario = 'francisco755';
 $senha = '755!@#';
