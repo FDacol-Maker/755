@@ -72,8 +72,13 @@ if ($acao === 'atualizar') {
     $preco = $_POST['preco'] ?? '';
     $estoque = $_POST['estoque'] ?? '';
     $categoria = $_POST['categoria'] ?? '';
-    $sql = "UPDATE produtos SET nome='$nome', descricao='$descricao', preco='$preco', estoque='$estoque', categoria='$categoria' WHERE id=$id";
-    $pdo->exec($sql);
+
+    //CONCATENADO POR PREPARED STATEMENT
+
+    $stmt = $pdo->prepare("UPDATE produtos SET nome=?, descricao=?, preco=?, estoque=?, categoria=? WHERE id=?");
+    $stmt->execute([$nome, $descricao, $preco, $estoque, $categoria, $id]);
+
+
     $mensagem = 'Produto atualizado.';
 }
 if ($acao === 'excluir') {
